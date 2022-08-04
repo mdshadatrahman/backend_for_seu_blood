@@ -1,8 +1,25 @@
 from datetime import datetime
+from typing import Optional
+from pydantic import BaseModel, EmailStr
 
 
-from datetime import datetime
-from pydantic import BaseModel
+class BaseUser(BaseModel):
+    email: EmailStr
+    password: str
+    phone_number: str
+    full_name: str
+    blood_group: str
+    dob: Optional[str]
+    department: Optional[str]
+    address: Optional[str]
+    last_donation: Optional[str]
+
+    class Config:
+        orm_mode = True
+
+class UserOut(BaseUser):
+    id: int
+    created_at: datetime
 
 
 class BloodRequest(BaseModel):
