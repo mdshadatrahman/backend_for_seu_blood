@@ -17,9 +17,24 @@ class BaseUser(BaseModel):
     class Config:
         orm_mode = True
 
+
 class UserOut(BaseUser):
     id: int
     created_at: datetime
+
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    id: Optional[str] = None
 
 
 class BloodRequest(BaseModel):
