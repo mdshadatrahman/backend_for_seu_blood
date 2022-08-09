@@ -14,3 +14,6 @@ app.include_router(auth.router)
 @app.get("/")
 def root():
     return {"Working": "I hope it is working"}
+
+
+#from new os
